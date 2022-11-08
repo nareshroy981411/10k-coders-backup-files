@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var persons = ["naresh","suresh","sathish","mahesh","teja"]
+
+        var char7person = persons.find((personName)=>{
+            return personName.length == 7
+        })
+
+
+        var char6person = persons.filter((personName)=>{
+           return personName.length == 6
+        })
+        console.log(char7person)
+        console.log(char6person)
+    </script>
+</body>
+</html>
