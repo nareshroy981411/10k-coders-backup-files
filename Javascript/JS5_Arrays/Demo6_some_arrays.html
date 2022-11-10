@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var playersDetails = [
+        { name: "Rohit", runs: 15 },
+        { name: "Rahul", runs: 51 },
+        { name: "Kohli", runs: 26 },
+        { name: "Hardik", runs: 18 },
+        { name: "SKY", runs: 62 },
+      ];
+
+      var totalScore = playersDetails.reduce((initialValue,player)=>{
+        if(initialValue.runs){
+            return initialValue.runs+player.runs
+        }else{
+            return initialValue+player.runs
+        }
+        
+      })
+      console.log(totalScore)
+    // Statement : All the Players scored above 50 Runs - false;
+    //   var statement = playersDetails.every((player)=>{
+    //     return player.runs >= 15;
+    //   })
+    //   console.log("Every Statement : -",statement)
+      
+      
+      // Statement : At least 1 player scored above 50 Runs - true   
+    //   var stementValue = playersDetails.some((player)=>{
+    //     return player.runs > 50
+    //   })
+    //   console.log(stementValue)
+
+
+    // var nos = [1,2,3,4,5,6,7]
+
+    // var total = nos.reduce((a,b)=>{
+    //     return a+b
+    // })
+
+    // console.log(total)
+    </script>
+  </body>
+</html>

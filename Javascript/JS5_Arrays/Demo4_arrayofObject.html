@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var playersDetails = [
+        { name: "Rohit", runs: 15 },
+        { name: "Rahul", runs: 51 },
+        { name: "Kohli", runs: 26 },
+        { name: "Hardik", runs: 18 },
+        { name: "SKY", runs: 62 },
+        { name: "DK", runs: 0 },
+      ];
+
+      //   playersDetails.forEach((player)=>{
+      //     document.write(player.name+"<br>")
+      //   })
+
+      var above50 = playersDetails.filter((player) => {
+        return player.runs > 50;
+      });
+
+      var lessthan10 = playersDetails.filter((player) => {
+        return player.runs < 10;
+      });
+      console.log(above50);
+      console.log(lessthan10)
+    </script>
+  </body>
+</html>
