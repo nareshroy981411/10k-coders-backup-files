@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+       <label for="">First Name : </label> <input type="text" name="" id="fname"> 
+      <input type="radio" name="gender" class="userGender" value="Male" /> Male <br />
+      <input type="radio" name="gender" class="userGender" value="Female" /> Female <br />
+      <button onclick="getGender()" type="button">Get Gender</button>
+    </form>
+    <script>
+
+        function getGender(){
+            var allRadiosTagNames = document.getElementsByTagName("input")
+            var allRadiosNames = document.getElementsByName("gender")
+            var allRadiosClasses = document.getElementsByClassName("userGender");
+            var allRadiosQuerySelector = document.querySelectorAll("input")
+            console.log("Get Elements By Tag name : - ",allRadiosTagNames)
+            console.log("Get Elements by Name : - ",allRadiosNames);
+            console.log("Get Elements By Class Name : -",allRadiosClasses);
+            console.log("Query Selector All : -",allRadiosQuerySelector)
+
+            allRadiosTagNames.map((rbtn)=>{
+                if(rbtn.checked){
+                    console.log(rbtn.value)
+                }
+            })
+
+            allRadiosNames.forEach((rbtn)=>{
+                if(rbtn.checked){
+                    console.log(rbtn.value)
+                }
+            })
+
+            for(i=0;i<allRadiosClasses.length;i++){
+                if(allRadiosClasses[i].checked){
+                    console.log("From HTML Collections : -",allRadiosClasses[i].value)
+                }
+            }
+
+            // allRadiosClasses.forEach((rbtn)=>{
+            //     if(rbtn.checked){
+            //         console.log(rbtn.value)
+            //     }
+            // })
+        }
+      // Accessing HTML Elements
+      // 1. Which will give single Element
+      // 1. getElementById
+      // 2. QuerySelector
+
+      // 2. Which will give Multiple Elements as Array of Elements
+      // 1. getElementsByTagName
+      // 2. getElementsByName
+      // 3. getElementsByClassName
+      // 4. querySelectorAll
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>User Name</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var users = [
+    {
+        "id": 1373,
+        "email": "FRogers@dolor.org",
+        "username": "FHill",
+        "password": "2stDD"
+    },
+    {
+        "id": 1374,
+        "email": "RPitzel@vestibulum.io",
+        "username": "LRider",
+        "password": "WBOmc"
+    },
+    {
+        "id": 1375,
+        "email": "KDenton@donec.org",
+        "username": "GKavanaugh",
+        "password": "PQijD"
+    },
+    {
+        "id": 1376,
+        "email": "DBriley@aliquam.net",
+        "username": "JBartlett",
+        "password": "sjEka"
+    },
+    {
+        "id": 1377,
+        "email": "DNeese@libero.ly",
+        "username": "MCreel",
+        "password": "t4Llc"
+    }
+]
+
+users.forEach((user)=>{
+    var myTr = document.createElement("tr")
+
+    // By Using for in Loop 
+
+    // for(a in user){
+        // var myTd = document.createElement("td")
+        // myTd.innerHTML=user[a];
+        // myTr.appendChild(myTd)
+    // }
+
+    Object.values(user).forEach((val)=>{
+        console.log(val)
+        var myTd = document.createElement("td")
+        myTd.innerHTML=val;
+        myTr.appendChild(myTd)
+    })
+
+
+    // var td1 = document.createElement("td");
+    // td1.innerHTML = user.id 
+    // myTr.appendChild(td1)
+
+    // var td2 = document.createElement("td");
+    // td2.innerHTML = user.email
+    // myTr.appendChild(td2)
+
+
+    // var td3 = document.createElement("td");
+    // td3.innerHTML = user.username
+    // myTr.appendChild(td3)
+
+    // var td4 = document.createElement("td");
+    // td4.innerHTML = user.password
+    // myTr.appendChild(td4)
+
+    document.querySelector("tbody").appendChild(myTr)
+})
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var players = ["Rahul", "Rohit", "Kohli", "Hardik","Gill", "Pant"];
+
+        var char4Player = players.find((playerName)=>{
+            return playerName.length == 4
+        })
+        
+        var char5Player = players.filter((playerName)=>{
+            return playerName.length == 5
+        })
+
+        console.log(char4Player)
+        console.log(char5Player)
+    </script>
+  </body>
+</html>

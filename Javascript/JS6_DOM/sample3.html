@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="checkbox" name="ui" class="subject" id="subjectID"> HTML <br>
+        <input type="checkbox" name="ui" class="subject" id="subjectID"> CSS <br>
+        <input type="checkbox" name="ui" class="subject" id="subjectID"> Javascript <br>
+        <input type="checkbox" name="ui" class="subject" id="subjectID"> ReactJS <br>
+        <button>Get All Values</button>
+    </form>
+
+    <script>
+         var playersDetails = [
+        { name: "Rohit", runs: 15 },
+        { name: "Rahul", runs: 51 },
+        { name: "Kohli", runs: 26 },
+        { name: "Hardik", runs: 18 },
+        { name: "SKY", runs: 62 },
+      ];
+
+      var playerScores = playersDetails.map((player)=>{
+        return player.runs
+      })
+
+      var playerScoresInfo = playersDetails.map((player)=> player.runs)
+      
+      console.log(playerScores)
+      console.log(playerScoresInfo)
+    </script>
+</body>
+</html>
