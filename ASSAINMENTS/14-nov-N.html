@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img{
+            width: 100px;
+        }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th rowspan="2">ID</th>
+          <th rowspan="2" style="width:150px ;">Title</th>
+          <th rowspan="2">Price</th>
+          <th rowspan="2" style="width: 250px;">Description</th>
+          <th rowspan="2">Category</th>
+          <th rowspan="2">Image</th>
+          <th style="width: 100px" colspan="2" rowspan="1">Rating</th>
+          <th rowspan="2">Edit</th>
+          <th rowspan="2">Delete</th>
+        </tr>
+        <tr>
+          <th>Rate</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="./dataN.js"></script>
+    <script>
+      var filteredProducts = []
+      function displyProducts(products){
+      document.querySelector("tbody").innerHTML=""
+        products.forEach((product,i) => {
+          var myTr = document.createElement("tr");
+            for (a in product){
+                var myTd = document.createElement("td")
+                if(a !== "image" && a !== "rating"){
+                    myTd.innerHTML = product[a]
+                    myTr.appendChild(myTd)
+                }else if(a == "image"){
+                    var myImg = document.createElement("img");
+                    myImg.setAttribute("src",product[a])
+                    myTd.appendChild(myImg)
+                    myTr.appendChild(myTd)
+                }else if(a == "rating"){
+                    var ratingObj = product[a]
+                    for(b in ratingObj){
+                        var myRatingTd  = document.createElement("td")
+                        myRatingTd.innerHTML = ratingObj[b]
+                        myTr.appendChild(myRatingTd)
+                    }
+                }
+            }
+
+            var editTd = document.createElement("td");
+            var editBtn = document.createElement("button");
+            editBtn.innerHTML = "Edit";
+            editTd.appendChild(editBtn)
+            myTr.appendChild(editTd)
+
+            var deleteTd = document.createElement("td");
+            var deleteBtn = document.createElement("button");
+            deleteBtn.setAttribute("onclick","deleteProduct("+i+")")
+            deleteBtn.innerHTML = "Delete";
+            deleteTd.appendChild(deleteBtn)
+            myTr.appendChild(deleteTd)
+
+          document.querySelector("tbody").appendChild(myTr);
+        });
+      }
+        function deleteProduct(i){
+          if(filteredProducts.length == 0){
+        filteredProducts = products.filter((product,index) => {
+          return product.id !== products[i].id;
+         });
+          }else{
+            filteredProducts = filteredProducts.filter((product,index) => {
+            return product.id !== filteredProducts[i].id;
+            });
+          }
+         displyProducts(filteredProducts);
+
+        }
+        
+        displyProducts(products)
+
+        function editProduct(){}
+      
+    </script>
+  </body>
+</html>

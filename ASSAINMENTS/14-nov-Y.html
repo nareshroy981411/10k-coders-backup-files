@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User ID</th>
+          <th>Date</th>
+          <th>Prodcts</th>
+          <th>EDIT</th>
+          <th>DELETE</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="./dataY.js"></script>
+    <script>
+      var fillteredCarts = [];
+      function displayCarts(cart) {
+        document.querySelector("tbody").innerHTML = "";
+      cart.forEach((cartItem,i) => {
+        var myTr = document.createElement("tr");
+        for (a in cartItem) {
+          var myTd = document.createElement("td");
+          if (a !== "products" && a !== "__v" && a !== "date") {
+            myTd.innerHTML = cartItem[a];
+            myTr.appendChild(myTd);
+          } else if (a == "products") {
+            var productTable = document.createElement("table");
+            cartItem[a].forEach((item) => {
+              console.log(item);
+              var myProdTr = document.createElement("tr");
+              for (c in item) {
+                var ctd = document.createElement("td");
+                ctd.innerHTML = c + ": "+item[c];
+                myProdTr.appendChild(ctd);
+              }
+              productTable.appendChild(myProdTr);
+            });
+            myTd.appendChild(productTable);
+            myTr.appendChild(myTd);
+          }else if(a == 'date'){
+            myTd.innerHTML = new Date(cartItem[a]).toDateString();
+            myTr.appendChild(myTd);
+          }
+        }
+
+        
+        var editTd = document.createElement("td");
+          var editBtn = document.createElement("button");
+          editBtn.innerHTML = "EDIT";
+          editTd.appendChild(editBtn);
+          myTr.appendChild(editTd);
+
+          var deleteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.setAttribute("onclick", "deleteCart(" + i + ")");
+          deleteBtn.innerHTML = "DELETE";
+          deleteTd.appendChild(deleteBtn);
+          myTr.appendChild(deleteTd);
+
+        document.querySelector("tbody").appendChild(myTr);
+      });
+    }
+      function deleteCart(i) {
+        if (fillteredCarts.length == 0) {
+          fillteredCarts = carts.filter((cart, index) => {
+            return cart.id !== carts[i].id;
+          });
+        } else {
+          fillteredCarts = fillteredCarts.filter((cart, index) => {
+            return cart.id !== fillteredCarts[i].id;
+          });
+        }
+
+        displayCarts(fillteredCarts);
+      }
+
+      displayCarts(carts);
+      function editCarts() {}
+
+    </script>
+  </body>
+</html>

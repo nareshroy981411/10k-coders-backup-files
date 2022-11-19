@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Fname</th>
+                <th>Lname</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var persons = [
+    {
+        "fname": "Juanito",
+        "lname": "Haiduke"
+    },
+    {
+        "fname": "Leo",
+        "lname": "Parsons"
+    },
+    {
+        "fname": "Gabriel",
+        "lname": "Medina"
+    },
+    {
+        "fname": "Alisa",
+        "lname": "Landosky"
+    },
+    {
+        "fname": "Yvette",
+        "lname": "Love"
+    },
+    {
+        "fname": "Halina",
+        "lname": "Reinhardt"
+    },
+    {
+        "fname": "Tighe",
+        "lname": "Waters"
+    },
+    {
+        "fname": "Austin",
+        "lname": "Hettrick"
+    },
+    {
+        "fname": "Raymond",
+        "lname": "Calliste"
+    },
+    {
+        "fname": "Anuraag",
+        "lname": "Thomason"
+    }
+]
+
+var fillteredPersons = [];
+  function displayPersons(person) {
+        document.querySelector("tbody").innerHTML = "";
+       persons.forEach((person, i)=>{
+       var myTr = document.createElement("tr")
+
+
+      Object.values(person).forEach((val)=>{
+        console.log(val)
+        var myTd = document.createElement("td")
+        myTd.innerHTML=val;
+        myTr.appendChild(myTd)
+      })
+
+         var editTd = document.createElement("td");
+          var editBtn = document.createElement("button");
+          editBtn.innerHTML = "EDIT";
+          editTd.appendChild(editBtn);
+          myTr.appendChild(editTd);
+
+          var deleteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.setAttribute("onclick", "deleteperson(" + i + ")");
+          deleteBtn.innerHTML = "DELETE";
+          deleteTd.appendChild(deleteBtn);
+          myTr.appendChild(deleteTd);
+      
+    document.querySelector("tbody").appendChild(myTr)
+});
+    }
+      function deletePerson(i) {
+        if (fillteredPersons.length == 0) {
+          fillteredPersons = persons.filter((person, index) => {
+            return person.id !== members[i].id;
+          });
+        } else {
+          fillteredPersons = fillteredPersons.filter((person, index) => {
+            return person.id !== fillteredPersons[i].id;
+          });
+        }
+
+        displayPersons(fillteredPersons);
+      }
+
+      displayPersons(persons);
+      function editPerson() {}
+    </script>
+</body>
+</html>

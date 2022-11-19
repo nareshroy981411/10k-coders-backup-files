@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>User Name</th>
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var members =[
+    {
+        "id": 379,
+        "email": "VBoyes@consectetur.ly",
+        "username": "JStone",
+        "password": "qndgE"
+    },
+    {
+        "id": 380,
+        "email": "WBouchard@egestas.com",
+        "username": "KMendoza",
+        "password": "xshgE"
+    },
+    {
+        "id": 381,
+        "email": "BWild@lacus.com",
+        "username": "LWollf",
+        "password": "pQC6k"
+    },
+    {
+        "id": 382,
+        "email": "SKarma@aenean.gov",
+        "username": "EHawkins",
+        "password": "7IuWG"
+    },
+    {
+        "id": 383,
+        "email": "RSmoaks@vitae.org",
+        "username": "DWelld",
+        "password": "2B7mS"
+    },
+    {
+        "id": 384,
+        "email": "ARehnke@eget.io",
+        "username": "PWolz",
+        "password": "5xuLc"
+    },
+    {
+        "id": 385,
+        "email": "AHancock@vitae.ly",
+        "username": "HPotate",
+        "password": "rgiQ6"
+    },
+    {
+        "id": 386,
+        "email": "ABruintjes@pulvinar.io",
+        "username": "MPalmer",
+        "password": "qb0UU"
+    },
+    {
+        "id": 387,
+        "email": "CNeville@massa.io",
+        "username": "DLinville",
+        "password": "1PDcZ"
+    },
+    {
+        "id": 388,
+        "email": "ETorres@pretium.gov",
+        "username": "RCurtis",
+        "password": "zwWSP"
+    }
+]
+
+var fillteredMembers = [];
+      function displayMembers(member) {
+        document.querySelector("tbody").innerHTML = "";
+members.forEach((member, i)=>{
+    var myTr = document.createElement("tr")
+
+
+    Object.values(member).forEach((val)=>{
+        console.log(val)
+        var myTd = document.createElement("td")
+        myTd.innerHTML=val;
+        myTr.appendChild(myTd)
+    })
+    var editTd = document.createElement("td");
+          var editBtn = document.createElement("button");
+          editBtn.innerHTML = "Edit";
+          editTd.appendChild(editBtn);
+          myTr.appendChild(editTd);
+
+          var deleteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.setAttribute("onclick", "deleteMember(" + i + ")");
+          deleteBtn.innerHTML = "Delete";
+          deleteTd.appendChild(deleteBtn);
+          myTr.appendChild(deleteTd);
+      
+    document.querySelector("tbody").appendChild(myTr)
+});
+    }
+      function deleteMember(i) {
+        if (fillteredMembers.length == 0) {
+          fillteredMembers = members.filter((member, index) => {
+            return member.id !== members[i].id;
+          });
+        } else {
+          fillteredMembers = fillteredMembers.filter((member, index) => {
+            return member.id !== fillteredMembers[i].id;
+          });
+        }
+
+        displayMembers(fillteredMembers);
+      }
+
+      displayMembers(members);
+      function editMember() {}
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var teamNewZealand = [
+            {
+                name:"Finn Allen",
+                runs: 42,
+                balls:16,
+                fours:5,
+                sixes:3,
+                sr:262.50
+
+            },
+
+            {
+                name:"Conway",
+                runs:  92,
+                balls:58,
+                fours:7,
+                sixes:2,
+                sr:158.62
+
+            },
+
+            {
+                name:"Wiiliamson",
+                runs:  23,
+                balls:23,
+                fours:1,
+                sixes:1,
+                sr:100.00
+
+            },
+            {
+                name:"Phillips",
+                runs:  12,
+                balls:10,
+                fours:2,
+                sixes:0,
+                sr:120.00
+
+            },
+
+            {
+                name:"Neesham",
+                runs:  26,
+                balls:13,
+                fours:0,
+                sixes:2,
+                sr:200.00
+
+            },
+        ]
+
+            var totalScore = teamNewZealand.reduce((initialValue,team)=>{
+             if(initialValue.runs){
+               return initialValue.runs+team.runs
+                }else{
+                return initialValue+team.runs
+            }
+  
+            })
+                console.log(totalScore)
+                document.write(totalScore)
+                
+       // for(i=0;i<teamNewZealand.length;i++){
+        //    document.write(teamNewZealand[i]+"<br>")
+        //}
+        teamNewZealand.forEach((team,index,arry)=>{
+          //  document.write(team+index+"<br>")
+          
+          document.write(arry+"<br>")
+        })
+    </script>
+</body>
+</html>

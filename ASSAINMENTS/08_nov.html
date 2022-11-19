@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var indiaScore = [
+            {
+                name: "KL Rahul",
+                noOfRuns: 0,
+                noOfBalls: 8,
+                fours: 10,
+                sixs: 0,
+                SR: 50.00
+            },
+            {
+                name: "Rohit Sharma(c)",
+                noOfRuns: 0,
+                noOfBalls: 7,
+                fours: 0,
+                sixs: 0,
+                SR: 57.14
+            },
+            {
+                name: "Virat Kohli",
+                noOfRuns: 82,
+                noOfBalls: 53,
+                fours: 6,
+                sixs: 4,
+                SR: 154.72
+            },
+            {
+                name: "Suryakumar Yadav",
+                noOfRuns: 15,
+                noOfBalls: 10,
+                fours: 2,
+                sixs: 0,
+                SR: 150.00
+            },
+            {
+                name: "Axar Patel",
+                noOfRuns: 2,
+                noOfBalls: 3,
+                fours: 0,
+                sixs: 0,
+                SR: 66.67
+            },
+            {
+                name: "Hardik Pandya",
+                noOfRuns: 40,
+                noOfBalls: 37,
+                fours: 1,
+                sixs: 2,
+                SR: 108.11
+            },
+            {
+                name: "Dinesh Karthik (wk)",
+                noOfRuns: 1,
+                noOfBalls: 2,
+                fours: 0,
+                sixs: 0,
+                SR: 50.00
+            },
+            {
+                name: "Ravichanfran Ashwin",
+                noOfRuns: 1,
+                noOfBalls: 1,
+                fours: 0,
+                sixs: 0,
+                SR: 100.00
+            }
+        ];
+
+        // Total runs by all the players
+        document.write("Total runs by all the players : ")
+        var totalRuns = indiaScore.reduce((initialValue, value) => {
+            if (initialValue.noOfRuns == 0) {
+                return initialValue.noOfRuns + value.noOfRuns;
+            }
+            else if (initialValue.noOfRuns) {
+                return initialValue.noOfBalls + value.noOfRuns;
+            }
+            else {
+                return initialValue + value.noOfRuns;
+            }
+        })
+        document.write(totalRuns + "<br><br>");
+
+        // extra runs
+        var extraRuns = [
+            {
+                b: 3,
+                lb: 1,
+                w: 6,
+                nb: 1,
+                p: 0
+            }
+        ];
+
+        var result;
+        extraRuns.forEach((number) => {
+            result = number.b + number.lb + number.w + number.nb + number.p;
+            document.write("Total extra runs : " + result + "<br><br>")
+        });
+        document.write("Total no of runs scored by the team : " + (totalRuns + result) + "<br><br>");
+
+
+        //Total 4's by all the players
+        var totalFours = indiaScore.reduce((initialValue, nooffours) => {
+            if (initialValue.fours == 0) {
+                return initialValue.fours + nooffours.fours;
+            } 
+            else if (initialValue.fours) {
+                return initialValue.fours + nooffours.fours;
+            }
+            else {
+                return initialValue + nooffours.fours;
+            }
+        });
+        document.write("Total no of fours : " + totalFours + "<br><br>");
+
+        // Total 6's by all the players
+        var totalSixs = indiaScore.reduce((initialValue, noOfSix) => {
+            if (initialValue.sixs == 0) {
+                return initialValue.sixs + noOfSix.sixs;
+            }
+            else if (initialValue.sixs) {
+                return initialValue.sixs + noOfSix.sixs;
+            }
+            else {
+                return initialValue + noOfSix.sixs;
+            }
+        });
+        document.write("Total no of Sixes : " + totalSixs + "<br><br>");
+
+        //Lowest run scored player
+        document.write("Lowest run scored by the players. <br>");
+        var lowestRun = indiaScore.reduce(function (a, b) {
+            if (Object.values(a).length > 0) {
+                return Math.min(a.noOfRuns, b.noOfRuns);
+            } else {
+                return Math.min(a, b.noOfRuns);
+            }
+
+        });
+        console.log("lowestRun", lowestRun)
+        var lowestRunPlayers = indiaScore.filter((player) => {
+            console.log(player)
+            return player.noOfRuns == lowestRun;
+        });
+        //document.write("Lowest Run Scorer is : "+lowestRunPlayer.name)
+        lowestRunPlayers.forEach((player) => {
+            document.write("Lowest Run Scorer is : " + player.name + "<br>")
+        })
+        document.write("Scored lowest run = " + lowestRun + "<br>");
+
+
+        // indiaScore.some((number)=>{
+        //     if(number.noOfRuns <=1){
+        //         document.write(number.name+" Scored lowest run = "+number.noOfRuns+"<br>");
+        //         console.log(number);
+        //     }
+        // });
+        document.write("<br>");
+
+        // Highest run scored player
+        document.write("Highest run scored by the players. <br>")
+        var highestRun = indiaScore.reduce((a, b) => {
+            if (Object.values(a).length > 0) {
+                return Math.max(a.noOfRuns, b.noOfRuns);
+            }
+            else {
+                return Math.max(a, b.noOfRuns);
+            }
+        });
+
+        var highestRunPlayers = indiaScore.filter((player) => {
+            return player.noOfRuns == highestRun;
+        })
+        highestRunPlayers.forEach((player) => {
+            document.write("Highest run scorer is : " + player.name + "<br>");
+        })
+        console.log("Highest run : " + highestRun)
+        document.write("Scored highest run = " + highestRun + "<br> <br>");
+
+        // indiaScore.some((number)=>{
+        //     if(number.noOfRuns >=80){
+        //         document.write(number.name+" Scored Highest run = "+number.noOfRuns+"<br> <br>");
+        //         console.log(number);
+        //     }
+        // });
+
+
+        //lowest strike rate
+
+        // indiaScore.some((number) => {
+        //     if (number.SR <= 50.00) {
+        //         document.write(number.name + " scored the lowest strike rate = " + number.SR + "<br>")
+        //         console.log(number);
+        //     }
+        // });
+
+        var lowestSR = indiaScore.reduce((initialValue, value) => {
+            if (initialValue.SR == 0) {
+                return Math.min(initialValue.SR, value.SR);
+            }
+            else if (initialValue.SR) {
+                return Math.min(initialValue.SR, value.SR);
+            }
+            else {
+                return Math.min(initialValue, value.SR);
+            }
+        });
+        document.write("Lowest strike rate : " + lowestSR + "<br>");
+        var lowestSRPlayers = indiaScore.filter((player) => {
+            return player.SR == lowestSR;
+        })
+        lowestSRPlayers.forEach((player) => {
+            document.write("Lowest strike rate scored by " + player.name + " and the strike rate = " + player.SR + "<br>")
+        })
+        document.write("<br>");
+
+
+        //highest strike rate
+        // document.write("Highest strike rate. <br>");
+        // indiaScore.some((number) => {
+        //     if (number.SR >= 154.00) {
+        //         document.write(number.name + " scored the highest strike rate = " + number.SR + "<br>")
+        //         console.log(number);
+        //     }
+        // });
+
+        var highestSR = indiaScore.reduce((initialValue, value) => {
+            if (initialValue.SR == 0) {
+                return Math.max(initialValue.SR, value.SR);
+            }
+            else
+                if (initialValue.SR) {
+                    return Math.max(initialValue.SR, value.SR);
+                }
+                else {
+                    return Math.max(initialValue, value.SR);
+                }
+        });
+        document.write("Highest strike rate : " + highestSR + "<br>");
+        var highestSRPlayers = indiaScore.filter((player) => {
+            return player.SR == highestSR;
+        })
+        highestSRPlayers.forEach((player) => {
+            document.write("Lowest strike rate scored by " + player.name + " and the strike rate = " + player.SR + "<br>")
+        })
+        console.log("Highest Strike rate : " + highestSR);
+        console.log(typeof (highestSR));
+        document.write("<br>");
+        
+    </script>
+</body>
+
+</html>
+</body>
+</html>
