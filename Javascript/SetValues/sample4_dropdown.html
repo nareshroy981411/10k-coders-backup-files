@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="state">State Name : </label>
+        <select id="stateName" multiple>
+            <option value="AP">AP</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tamilnadu">Tamilnadu</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+        </select>
+        <button onclick="setState()" type="button">Set State</button>
+    </form>
+    <script>
+        function setState(){
+            // var selectedElementOptions = document.getElementsByTagName("option");
+            var selectedElementOptions = document.getElementById("stateName").children
+            var stateVal = ["Karnataka",'AP'];
+
+            // console.log(selectedElementOptions)
+
+            for(i=0;i<selectedElementOptions.length;i++){
+                var check = stateVal.find((val)=>val == selectedElementOptions[i].value)
+                if(check){
+                    selectedElementOptions[i].selected = true
+                }
+            }
+            // document.getElementById("stateName").value = stateVal;
+        }
+    </script>
+</body>
+</html>
