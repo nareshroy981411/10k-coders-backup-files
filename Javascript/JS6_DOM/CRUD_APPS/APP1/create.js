@@ -19,15 +19,28 @@ var userInfo = {
   var allCheckBoxes = document.getElementsByName("subject");
   var allStatus = document.getElementsByName("status");
   
-        // var users = []
+   var users = []
   function addUser() {
-   
-    var user = readUserFromForm()
+   for (a in user) {
+    if (a !== "status" && a !== "subjects"){
+      user[a] = document.getElementById(a).value;
+    } else if (a == "subjects") {
+      var allCheckBoxes = document.getElementsByName("subject");
+      allCheckBoxes.forEach((element) => {
+        if (element.checked) {
+          user.subjects.push(element.value);
+        }
+      });
+    }else if (a == "status") {
+      var allCheckBoxes = document.getElementsByName("status");
+      allStatus.forEach((element) => {
+        if (element.checked) {
+          user[a] = element.value;
+        }
+      });
+   }
+  }
     users.push(user);
-    // Storing all Users in Local Storage
-    localStorage.setItem("Users",JSON.stringify(users))
-    displayUsers(users)
-    clearForm()
   }
   
   
@@ -36,6 +49,8 @@ var userInfo = {
        if(a !== "status" && a !== "subjects"){
         document.getElementById(a).value = ""
        }else{
+        var allCheckBoxes = document.getElementsByName("subject");
+        var allStatus = document.getElementsByName("status");
         allCheckBoxes.forEach((cb)=>{
           cb.checked = false
         })
