@@ -15,12 +15,14 @@ var userInfo = {
   if(users== null){
     users=[]
   }
-  var gIndex = 0
-  var allCheckBoxes = document.getElementsByName("subject");
-  var allStatus = document.getElementsByName("status");
+  // var gIndex = 0
+  // var allCheckBoxes = document.getElementsByName("subject");
+  // var allStatus = document.getElementsByName("status");
   
-   var users = []
+  //  var users = []
   function addUser() {
+
+    var user = {...userInfo}
    for (a in user) {
     if (a !== "status" && a !== "subjects"){
       user[a] = document.getElementById(a).value;
@@ -41,6 +43,11 @@ var userInfo = {
    }
   }
     users.push(user);
+    // storing all Users in Local storage
+    localStorage.setItem("Users",JSON.stringify(users))
+    displayUsers(users)
+    console.log(user);
+    clearForm()
   }
   
   
@@ -61,25 +68,25 @@ var userInfo = {
     }
   }
   
-  function readUserFromForm(){
-    var user = {...userInfo}
-    for (a in user) {
-      if (a !== "status" && a !== "subjects") {
-        user[a] = document.getElementById(a).value;
-      } else if (a == "subjects") {
-        allCheckBoxes.forEach((element) => {
-          if (element.checked) {
-            user.subjects.push(element.value);
-          }
-        });
-      } else if (a == "status") {
-        allStatus.forEach((element) => {
-          if (element.checked) {
-            user[a] = element.value;
-          }
-        });
-      }
-    }
+  // function readUserFromForm(){
+  //   var user = {...userInfo}
+  //   for (a in user) {
+  //     if (a !== "status" && a !== "subjects") {
+  //       user[a] = document.getElementById(a).value;
+  //     } else if (a == "subjects") {
+  //       allCheckBoxes.forEach((element) => {
+  //         if (element.checked) {
+  //           user.subjects.push(element.value);
+  //         }
+  //       });
+  //     } else if (a == "status") {
+  //       allStatus.forEach((element) => {
+  //         if (element.checked) {
+  //           user[a] = element.value;
+  //         }
+  //       });
+  //     }
+  //   }
   
-    return user
-  }
+  //   return user
+  // }

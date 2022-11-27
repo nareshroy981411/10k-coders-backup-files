@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. synchronous .. one after one
+        // 2. Asynchronous
+        // getDataFromServers() // it involved Asynchronous Process
+        // displayData()
+
+        var users = []
+        function getALLusersFromServer(){
+            var getData = new XMLHttpRequest()
+            getData.onreadystatechange=function (){
+                if(getData.readystate == 4 && getData.status == 200){
+                    users = JSON.purse(getData.responce)
+                    console.log("Users Inside getAllusersFromServer :",users)
+                    displayAllUsers()
+                }
+            }
+            getData.open("GET","http://filltext.com/?rows=10&fname={firstName}&lname={lastName}&tel={phone|format}&address={streetAddress}&city={city}&state={usState|abbr}&zip={zip}&pretty=true")
+            getData.send()
+        }  
+        function displayAllUsers(){
+            console.log("Users Inside displayAllUsers :",users)
+        }
+
+
+        getALLusersFromServer(displayAllUsers);
+
+    </script>
+</body>
+</html>

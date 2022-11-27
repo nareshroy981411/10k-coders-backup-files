@@ -21,7 +21,6 @@ function displayUsers(users){
         deleteBtn.innerHTML = "DELETE";
         deleteTd.appendChild(deleteBtn)
         myTr.appendChild(deleteTd);
-        
         document.querySelector("tbody").appendChild(myTr)
     })
 }

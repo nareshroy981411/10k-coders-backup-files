@@ -38,11 +38,12 @@
           }
          };
         // var api_url = "https://filltext.com/?rows=5&fname={firstName}&company={business}&pretty=true&phone={phone}";
-         var api_url = "https://jsonplaceholder.typicode.com/users"
-        getdata.open("GET",api_url);
+        //  var api_url = "https://jsonplaceholder.typicode.com/users"
+        var local_api_url = "http://localhost:3000/users"
+        getdata.open("GET",local_api_url);
         getdata.send();
       }
-
+      // http://localhost:3000/users
       getDataFromServer();
 
       function displayUsers(users) {
