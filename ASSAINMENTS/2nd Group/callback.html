@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="getDataFromServer">Get Data</button> -->
+    <!-- <table border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Shortfilm</th>
+                <th>Hero</th>
+                <th>Dierctor</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table> -->
+    <ul></ul>
+    <script>
+
+      function getDataFromServer() {
+        var getdata = new XMLHttpRequest();
+        getdata.onreadystatechange = function () {
+          if (getdata.readyState == 4 && getdata.status == 200) {
+            var users = JSON.parse(getdata.response);
+            console.log(JSON.parse(getdata.response));
+            // displayUsers(users)
+          }
+        };
+      
+      var api_url = "http://filltext.com/?rows=10&id={index}&shortfilm={username}&Hero={username}&&Director={username}&pretty=true"
+      getdata.open("GET",api_url)
+      getdata.send()
+    }
+    getDataFromServer()
+
+    
+//     function displayMembers(member) {
+//         document.querySelector("tbody").innerHTML = "";
+// members.forEach((member, i)=>{
+//     var myTr = document.createElement("tr")
+
+
+//     Object.values(member).forEach((val)=>{
+//         console.log(val)
+//         var myTd = document.createElement("td")
+//         myTd.innerHTML=val;
+//         myTr.appendChild(myTd)
+//     })
+//     document.querySelector("tbody").appendChild(myTr)
+// });
+//     }
+function displayAlluserData(users) {
+        console.log(datas);
+        users.forEach((shortfilm) => {
+          console.log(shortfilm, "name");
+
+          var myLi = document.createElement("li");
+          myLi.innerHTML = shortfilm.shortfilm;
+          document.querySelector("ul").appendChild(myLi);
+        });
+    }
+    </script>
+</body>
+</html>
