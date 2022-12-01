@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var myName = "Naresh";
+        var WelcomeMessage = "hello well come to my famaily myName.Feel free"
+        console.log(WelcomeMessage.length);
+        console.log(WelcomeMessage.split(" "))
+        console.log(WelcomeMessage.split(" ").join(" "))
+        console.log(WelcomeMessage.split(" ").reverse().join(" "))
+        console.log(WelcomeMessage.indexOf("my"))
+        console.log(WelcomeMessage.lastIndexOf("well"))
+        var dotIndex = WelcomeMessage.indexOf("");
+        console.log(WelcomeMessage.substring(dotIndex+0,dotIndex+16));
+        console.log(WelcomeMessage.substr(dotIndex+2,22))
+        console.log(WelcomeMessage.slice(dotIndex+2,20))
+        console.log("dotIndex",dotIndex)
+        
+    </script>
+</body>
+</html>
