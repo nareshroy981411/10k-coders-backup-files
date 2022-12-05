@@ -21,27 +21,23 @@
       <div id="userDetails" class="container">
         <form>
           <div class="mb-3">
-            <label for="id" class="form-label">ID</label>
+            <label for="id" class="form-label">AlbumID</label>
             <input type="text" class="form-control" disabled id="id" />
           </div>
           <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" />
+            <label for="id" class="form-label">ID</label>
+            <input type="num" class="form-control" id="name" />
           </div>
           <div class="mb-3">
-            <label for="username" class="form-label">User Name</label>
-            <input type="text" class="form-control" id="username" />
+            <label for="titlt" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" />
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" />
+            <label for="url" class="form-label">Url</label>
+            <input type="tel" class="form-control" id="url" />
           </div>
           <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" />
-          </div>
-          <div class="mb-3">
-            <label for="website" class="form-label">Website</label>
+            <label for="website" class="form-label">URL</label>
             <input type="text" class="form-control" id="website" />
           </div>
           <button type="button" class="btn btn-primary" onclick="updateUser()">
@@ -54,7 +50,7 @@
       var mainUser = {};
       var id;
       function gotoMainpage() {
-        window.location.href = "z.html";
+        window.location.href = "3a.html";
       }
       var url = window.location.href;
       console.log(url);
@@ -64,7 +60,7 @@
         id = null;
       }
 
-      fetch("http://localhost:3000/users/" + id)
+      fetch("http://localhost:3000/employes/" + id)
         .then((response) => {
           return response.json();
         })
@@ -77,12 +73,12 @@
           }
         });
       function gotoMainpage() {
-        window.location.href = "z.html";
+        window.location.href = "3a.html";
       }
       function updateUser() {
         if (id) {
           // callUpdate function
-          fetch("http://localhost:3000/users/" + id, {
+          fetch("http://localhost:3000/employes/" + id, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -93,10 +89,10 @@
               return response.json();
             })
             .then(() => {
-              window.location.href = "z.html";
+              window.location.href = "3a.html";
             });
         } else {
-          fetch("http://localhost:3000/users/", {
+          fetch("http://localhost:3000/employes/", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -107,7 +103,7 @@
               return response.json();
             })
             .then(() => {
-              window.location.href = "z.html";
+              window.location.href = "3a.html";
             });
         }
       }
@@ -118,15 +114,15 @@
           name: "",
           username: "",
           email: "",
-          address: {},
-          phone: "",
-          website: "",
-          company: {},
+          // address: {},
+          // phone: "",
+          // website: "",
+          // company: {},
         };
         for (a in newUser) {
-          if (a !== "company" && a !== "address") {
+          // if (a !== "company" && a !== "address") {
             newUser[a] = document.getElementById(a).value;
-          }
+          // }
         }
 
         return newUser;

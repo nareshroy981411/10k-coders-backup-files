@@ -36,12 +36,10 @@
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>UserName</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Website</th>
+          <th>Group</th>
+          <th>userID</th>
+          <th>Title</th>
+          <th>value</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -51,7 +49,7 @@
     <script>
         var allUsers =[]
       function getDataFromServer() {
-        fetch("http://localhost:3000/users")
+        fetch("http://localhost:3000/products")
           .then((response) => {
             return response.json();
           })
@@ -67,11 +65,11 @@
         users.forEach((user,i) => {
           var myTr = document.createElement("tr");
           for (a in user) {
-            if (a !== "address" && a !== "company") {
+            // if (a !== "address" && a !== "company") {
               var myTd = document.createElement("td");
               myTd.innerHTML = user[a];
               myTr.appendChild(myTd);
-            }
+            // }
           }
 
           var editTd = document.createElement("td");
@@ -97,16 +95,16 @@
       function deleteUser(i){
         console.log(i)
         console.log(allUsers[i])
-        window.location.href="delete_dec.html?"+allUsers[i].id
+        window.location.href="c.html?"+allUsers[i].id
       }
 
       function editUser(i){
         console.log(allUsers[i])
-        window.location.href="create-dec.html?"+allUsers[i].id
+        window.location.href="b.html?"+allUsers[i].id
       }
 
       function gotoCreateUser(){
-        window.location.href="create-dec.html"
+        window.location.href="b.html"
       }
     </script>
   </body>

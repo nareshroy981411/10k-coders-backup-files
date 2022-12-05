@@ -147,18 +147,18 @@
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" />
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="username" class="form-label">User Name</label>
             <input type="text" class="form-control" id="username" />
-          </div>
+          </div> -->
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="email" />
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
             <input type="text" class="form-control" id="phone" />
-          </div>
+          </div> -->
           <div class="mb-3">
             <label for="website" class="form-label">Website</label>
             <input type="text" class="form-control" id="website" />
@@ -173,7 +173,7 @@
       var mainUser = {};
       var id;
       function gotoMainpage() {
-        window.location.href = "BOM_dec.html";
+        window.location.href = "4a.html";
       }
       var url = window.location.href;
       console.log(url);
@@ -183,7 +183,7 @@
         id = null;
       }
 
-      fetch("http://localhost:3000/users/" + id)
+      fetch("http://localhost:3000/programs/" + id)
         .then((response) => {
           return response.json();
         })
@@ -196,12 +196,12 @@
           }
         });
       function gotoMainpage() {
-        window.location.href = "BOM_dec.html";
+        window.location.href = "4a.html";
       }
       function updateUser() {
         if (id) {
           // callUpdate function
-          fetch("http://localhost:3000/users/" + id, {
+          fetch("http://localhost:3000/programs/" + id, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -212,10 +212,10 @@
               return response.json();
             })
             .then(() => {
-              window.location.href = "BOM_dec.html";
+              window.location.href = "4a.html";
             });
         } else {
-          fetch("http://localhost:3000/users/", {
+          fetch("http://localhost:3000/programs/", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -226,7 +226,7 @@
               return response.json();
             })
             .then(() => {
-              window.location.href = "BOM_dec.html";
+              window.location.href = "4a.html";
             });
         }
       }

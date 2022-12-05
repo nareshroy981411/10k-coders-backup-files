@@ -21,28 +21,28 @@
       <div id="userDetails" class="container">
         <form>
           <div class="mb-3">
-            <label for="id" class="form-label">ID</label>
-            <input type="text" class="form-control" disabled id="id" />
+            <label for="id" class="form-label">Group</label>
+            <input type="number" class="form-control" disabled id="id" />
           </div>
           <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" />
+            <label for="userid" class="form-label">User ID</label>
+            <input type="number" class="form-control" id="userid" />
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="username" class="form-label">User Name</label>
             <input type="text" class="form-control" id="username" />
-          </div>
+          </div> -->
           <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" />
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" />
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
             <input type="text" class="form-control" id="phone" />
-          </div>
+          </div> -->
           <div class="mb-3">
-            <label for="website" class="form-label">Website</label>
-            <input type="text" class="form-control" id="website" />
+            <label for="value" class="form-label">Value</label>
+            <input type="text" class="form-control" id="value" />
           </div>
           <button type="button" class="btn btn-primary" onclick="updateUser()">
             Submit
@@ -54,7 +54,7 @@
       var mainUser = {};
       var id;
       function gotoMainpage() {
-        window.location.href = "z.html";
+        window.location.href = "a.html";
       }
       var url = window.location.href;
       console.log(url);
@@ -64,25 +64,25 @@
         id = null;
       }
 
-      fetch("http://localhost:3000/users/" + id)
+      fetch("http://localhost:3000/products/" + id)
         .then((response) => {
           return response.json();
         })
         .then((user) => {
           mainUser = user;
           for (a in user) {
-            if (a !== "address" && a !== "company") {
+            // if (a !== "address" && a !== "company") {
               document.getElementById(a).value = user[a];
-            }
+            // }
           }
         });
       function gotoMainpage() {
-        window.location.href = "z.html";
+        window.location.href = "a.html";
       }
       function updateUser() {
         if (id) {
           // callUpdate function
-          fetch("http://localhost:3000/users/" + id, {
+          fetch("http://localhost:3000/products/" + id, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -93,10 +93,10 @@
               return response.json();
             })
             .then(() => {
-              window.location.href = "z.html";
+              window.location.href = "a.html";
             });
         } else {
-          fetch("http://localhost:3000/users/", {
+          fetch("http://localhost:3000/products/", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -107,26 +107,26 @@
               return response.json();
             })
             .then(() => {
-              window.location.href = "z.html";
+              window.location.href = "a.html";
             });
         }
       }
 
       function captureUser() {
         var newUser = {
-          id: "",
-          name: "",
-          username: "",
-          email: "",
-          address: {},
-          phone: "",
-          website: "",
-          company: {},
+          Group: "",
+          UserID: "",
+          Title: "",
+          Value: "",
+          // address: {},
+          // phone: "",
+          // website: "",
+          // company: {},
         };
         for (a in newUser) {
-          if (a !== "company" && a !== "address") {
+          // if (a !== "company" && a !== "address") {
             newUser[a] = document.getElementById(a).value;
-          }
+          // }
         }
 
         return newUser;

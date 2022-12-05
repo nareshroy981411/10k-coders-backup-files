@@ -37,11 +37,10 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Name</th>
-          <th>UserName</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Website</th>
+          <th>ID</th>
+          <th>title</th>
+          <th>URL</th>
+          <th>ThumbnailUrl</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -51,7 +50,7 @@
     <script>
         var allUsers =[]
       function getDataFromServer() {
-        fetch("http://localhost:3000/users")
+        fetch("http://localhost:3000/employes")
           .then((response) => {
             return response.json();
           })
@@ -97,16 +96,16 @@
       function deleteUser(i){
         console.log(i)
         console.log(allUsers[i])
-        window.location.href="delete_dec.html?"+allUsers[i].id
+        window.location.href="3c.html?"+allUsers[i].id
       }
 
       function editUser(i){
         console.log(allUsers[i])
-        window.location.href="create-dec.html?"+allUsers[i].id
+        window.location.href="3b.html?"+allUsers[i].id
       }
 
       function gotoCreateUser(){
-        window.location.href="create-dec.html"
+        window.location.href="3b.html"
       }
     </script>
   </body>
