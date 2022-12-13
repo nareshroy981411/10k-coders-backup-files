@@ -1,11 +1,17 @@
- import ABC from './Components/MultipleFunctionalComponents'
- import { ParentComponent,ChildComponent } from './Components/MultipleFunctionalComponents'
+//  import ABC from './Components/MultipleFunctionalComponents'
+
+import MainClassComponent, { ChildClassComponent, SiblingChildClassComp } from "./Components/MultipleClassComponents";
+
+//  import { ParentComponent,ChildComponent } from './Components/MultipleFunctionalComponents'
 function App() {
   return (
     <div className="App">
-    <ABC/>
+    {/* <ABC/>
     <ChildComponent/>
-    <ParentComponent/>
+    <ParentComponent/> */}
+    <MainClassComponent/>
+    <ChildClassComponent/>
+    <SiblingChildClassComp/>
     </div>
   );
   
