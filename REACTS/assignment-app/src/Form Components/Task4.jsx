@@ -5,8 +5,10 @@ export default class Task4 extends Component {
     super(props);
 
     this.state = {
-      person: {
+      Address: {
         street: "",
+        st2: "",
+        city: "",
         state: "",
         zipcode: "",
         country: "",
@@ -17,32 +19,34 @@ export default class Task4 extends Component {
     };
   }
   handleChange = (e) => {
-    var newPerson = { ...this.state.person };
-    newPerson[e.target.name] = e.target.value;
-    this.setState({ person: newPerson });
+    var newAddress = { ...this.state.Address };
+    newAddress[e.target.name] = e.target.value;
+    this.setState({ Address: newAddress });
     // console.log(e)
     // console.log("Names :- ",e.target.name)
     // console.log("Values :- ",e.target.value)
   };
   addUser = () => {
-    console.log(this.state.person);
+    console.log(this.state.Address);
     var newAllUsers = [...this.state.allUsers];
-    newAllUsers.push(this.state.person);
+    newAllUsers.push(this.state.Address);
     this.setState({ allUsers: newAllUsers });
     this.clearForm();
   };
   clearForm = () => {
     var newForm = {
         street: "",
+        st2: "",
+        city: "",
         state: "",
         zipcode: "",
         country: ""
     };
-    this.setState({ person: newForm });
+    this.setState({ Address: newForm });
   };
 
   editUser = (usr, i) => {
-    this.setState({ person: usr, editIndex: i });
+    this.setState({ Address: usr, editIndex: i });
   };
 
   deleteUser = (usr) => {
@@ -54,7 +58,7 @@ export default class Task4 extends Component {
 
   updateUser = () => {
     var latestUsers = [...this.state.allUsers];
-    latestUsers[this.state.editIndex] = this.state.person;
+    latestUsers[this.state.editIndex] = this.state.Address;
     this.setState({allUsers:latestUsers,editIndex:null});
     this.clearForm()
   };
@@ -66,24 +70,36 @@ export default class Task4 extends Component {
           <input
             type="tel"
             name="street"
-            value={this.state.person.street}
+            value={this.state.Address.street}
+            onChange={(e) => {
+              this.handleChange(e);
+            }}
+          />{" "}
+          <br /><label htmlFor="">St2 : </label>
+          <input
+            type="tel"
+            name="st2"
+            value={this.state.Address.st2}
             onChange={(e) => {
               this.handleChange(e);
             }}
           />{" "}
           <br />
-          <label htmlFor="">City,State : </label>
+          <label htmlFor="">City : </label>
           <input
             type="tel"
             name="city"
-            value={this.state.person.city}
+            value={this.state.Address.city}
             onChange={(e) => {
               this.handleChange(e);
             }}
-        />{" "}<input
+        />{" "}
+        <br />
+        <label htmlFor="">State : </label>
+        <input
         type="tel"
         name="state"
-        value={this.state.person.state}
+        value={this.state.Address.state}
         onChange={(e) => {
           this.handleChange(e);
         }}
@@ -93,7 +109,7 @@ export default class Task4 extends Component {
           <input
             type="number"
             name="zipcode"
-            value={this.state.person.zipcode}
+            value={this.state.Address.zipcode}
             onChange={(e) => {
               this.handleChange(e);
             }}
@@ -103,7 +119,7 @@ export default class Task4 extends Component {
           <input
             type="text"
             name="country"
-            value={this.state.person.country}
+            value={this.state.Address.country}
             onChange={(e) => {
               this.handleChange(e);
             }}
@@ -132,6 +148,7 @@ export default class Task4 extends Component {
           <thead>
             <tr>
               <th>Street</th>
+              <th>St2</th>
               <th>City</th>
               <th>State</th>
               <th>Zip Code</th>
@@ -144,6 +161,7 @@ export default class Task4 extends Component {
             {this.state.allUsers.map((usr, i) => (
               <tr key={i}>
                 <td>{usr.street}</td>
+                <td>{usr.st2}</td>
                 <td>{usr.city}</td>
                 <td>{usr.state}</td>
                 <td>{usr.zipcode}</td>

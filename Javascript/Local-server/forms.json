@@ -1,0 +1,130 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Naresh",
+      "username": "Naresh bodhasu",
+      "email": "nareshbodasu226@gmail.com",
+      "password": "981411",
+      "confirmpassword": "981411"
+    },
+    {
+      "id": 2,
+      "fullname": "ramu",
+      "username": "ramuram",
+      "email": "nareshbodasu226@gmail.com",
+      "password": "12345",
+      "confirmpassword": "12345"
+    },
+    {
+      "id": 3,
+      "fullname": "ramu",
+      "username": "ravan ",
+      "email": "nareshbodasu226@gmail.com",
+      "password": "12345",
+      "confirmpassword": "12345"
+    }
+  ],
+  "Address": [
+    {
+      "id": 1,
+      "street": "racharla",
+      "empty": "door",
+      "city": "siricilla",
+      "state": "Telangana",
+      "zipcode": 505305,
+      "country": "India"
+    },
+    {
+      "id": 2,
+      "street": "kancherla",
+      "st2": "colany",
+      "city": "siricilla",
+      "state": "ts",
+      "zipcode": "505433",
+      "country": "ind"
+    }
+  ],
+  "person": [
+    {
+      "id": 1,
+      "firstname": "ram",
+      "lastname": "laxman",
+      "dateofBirth": "2022-12-19",
+      "EmailId": "ramlaxman@.com",
+      "MobileNumber": "73645324"
+    },
+    {
+      "id": 2,
+      "firstname": "ram",
+      "lastname": "laxman",
+      "dateofBirth": "2022-12-19",
+      "EmailId": "ramlaxman@.com",
+      "MobileNumber": "73645324"
+    },
+    {
+      "id": 3,
+      "firstname": "ram",
+      "lastname": "laxman",
+      "dateofBirth": "2022-12-19",
+      "EmailId": "ramlaxman@.com",
+      "MobileNumber": "73645324"
+    }
+  ],
+  "registration": [
+    {
+      "id": 1,
+      "university": "Chaiatanya",
+      "institute": "Chalapathi",
+      "Branch": "bcom",
+      "Degree": "degree",
+      "status": "Completed",
+      "Average": "50",
+      "Experience": "3",
+      "website": "www.jafgdhw.com"
+    }
+  ],
+  "tender": [
+    {
+      "id": 1,
+      "username": "ravan ",
+      "password": "12345",
+      "EmailAddress": "ram@gmail.com",
+      "Man": "I am Women",
+      "Women": "i want Men",
+      "Dates": "3",
+      "Month": "march",
+      "Year": "2015",
+      "Height": "3Feet",
+      "Weight": "50kgs",
+      "self": "I am Man",
+      "finding": "i want Women",
+      "date": "2022-12-15",
+      "Dateofbirth": "2022-12-01"
+    },
+    {
+      "id": "2",
+      "username": "ravan",
+      "password": "3333",
+      "EmailAddress": "Sincere@april.biz",
+      "self": "I am Man",
+      "finding": "i want Women",
+      "Date": "",
+      "Height": "1Feet",
+      "Weight": "20kgs",
+      "date": "2022-12-15",
+      "Dateofbirth": "2022-12-07"
+    },
+    {
+      "id": "3",
+      "username": "sri",
+      "password": "",
+      "EmailAddress": "",
+      "self": "",
+      "finding": "",
+      "Dateofbirth": "2022-12-08",
+      "Height": "",
+      "Weight": ""
+    }
+  ]
+}
