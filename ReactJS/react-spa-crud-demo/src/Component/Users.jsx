@@ -10,7 +10,7 @@ const Users = () => {
   }, []);
 
   const getAllUsers = async () => {
-    const response = await (await fetch("http://localhost:3202/users")).json();
+    const response = await (await fetch("http://localhost:3201/users")).json();
     setUsers(response);
   };
   return (
@@ -22,6 +22,7 @@ const Users = () => {
             <th>First Name</th>
             <th>User Name</th>
             <th>Email</th>
+            <th>Password</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
