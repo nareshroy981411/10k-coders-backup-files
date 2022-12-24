@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "email": "vmurali100@gmail.com",
+      "password": "1234",
+      "id": 1,
+      "fname": "rama",
+      "lname": "Krishna"
+    },
+    {
+      "email": "ram@gmail.com",
+      "password": "1234",
+      "id": 2,
+      "fname": "Naveen ",
+      "lname": "Kumar"
+    },
+    {
+      "email": "murali.veesambattu@gmail.com",
+      "password": "11",
+      "fname": "Murali",
+      "lname": "Krishna",
+      "id": 3
+    },
+    {
+      "email": "ram@gmail.com",
+      "password": "123",
+      "fname": "Ravi",
+      "lname": "Kumar",
+      "id": 4
+    }
+  ]
+}

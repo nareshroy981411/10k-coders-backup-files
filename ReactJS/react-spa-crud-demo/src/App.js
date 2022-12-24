@@ -6,21 +6,21 @@ import Layout from "./Component/Layout";
 import EditUser from "./Component/EditUser";
 import Deleteuser from "./Component/Deleteuser";
 import CreateUser from "./Component/CreateUser";
+import Navbar from "./Component/Navbar";
 function App() {
   return (
-    <div className="App">
-
-     <Users/>
-    </div>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<Layout/>}>
-    //       <Route path="/edit" element={<EditUser/>}/>
-    //       <Route path="/delete" element={<Deleteuser/>}/>
-    //       <Route path="/create" element={<CreateUser/>}/>
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
+    
+    <BrowserRouter>
+    <Navbar/>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<Users/>}/>
+          <Route path="/edit/:id" element={<EditUser/>}/>
+          <Route path="/delete/:id" element={<Deleteuser/>}/>
+          <Route path="/create" element={<CreateUser/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
