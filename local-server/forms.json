@@ -1,0 +1,55 @@
+{
+  "students": [
+    {
+      "name": "dd naresh",
+      "email": "bodasunaresh226@gmail.com",
+      "password": "2222",
+      "id": 1
+    },
+    {
+      "name": "pavan",
+      "email": "Sincere@april.biz",
+      "password": "",
+      "id": 2
+    }
+  ],
+  "users": [],
+  "rams": [
+    {
+      "university": "Satavahana",
+      "institute": "SRR",
+      "branch": "Accounts",
+      "degree": "bcom",
+      "status": "Completed",
+      "average": "88",
+      "experience": "2",
+      "website": "anastasia.net",
+      "id": 1
+    }
+  ],
+  "ravans": [],
+  "karn": [
+    {
+      "street": "juuuuu",
+      "st2": "fds",
+      "city": "ffff",
+      "state": "444",
+      "zipcode": "505305",
+      "country": "India",
+      "id": 1
+    }
+  ],
+  "surya": [
+    {
+      "username": "ravan",
+      "password": "",
+      "email": "",
+      "me": "Iam a Men",
+      "finding": "finding for women",
+      "date": "",
+      "height": "",
+      "weight": "",
+      "id": 1
+    }
+  ]
+}
